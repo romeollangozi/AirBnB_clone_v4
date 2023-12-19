@@ -24,6 +24,9 @@ def close_db(error):
 
 
 if __name__ == "__main__":
+    """
+    Starting server
+    """
     app.run(host=getenv("HBNB_API_HOST", default="0.0.0.0"),
             port=int(getenv("HBNB_API_PORT", default=5000)),
             threaded=True)
