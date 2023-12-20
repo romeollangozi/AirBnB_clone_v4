@@ -21,7 +21,7 @@ def return_states(state_id=None):
             states = []
             for obj in storage.all(State).values():
                 states.append(obj.to_dict())
-                return jsonify(states)
+            return jsonify(states)
         state = storage.get(State, state_id)
         if state is None:
             return abort(404)
