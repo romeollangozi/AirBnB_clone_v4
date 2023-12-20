@@ -25,7 +25,7 @@ def return_states(state_id=None):
         state = storage.get(State, state_id)
         if state is None:
             return abort(404)
-        return jsonify([state.to_dict()])
+        return jsonify(state.to_dict())
     if request.method == 'PUT':
         state = storage.get(State, state_id)
         if state is None:
@@ -37,7 +37,7 @@ def return_states(state_id=None):
             if k not in ['id', 'updated_at', 'created_at']:
                 setattr(state, k, data[k])
         storage.save()
-        return jsonify([state.to_dict()])
+        return jsonify(state.to_dict())
     if request.method == 'DELETE':
         if state_id is None:
             return abort(404)
@@ -57,4 +57,4 @@ def return_states(state_id=None):
         new_state = State(name=state_name)
         storage.new(new_state)
         storage.save()
-        return jsonify([new_state.to_dict()]), 201
+        return jsonify(new_state.to_dict()), 201
