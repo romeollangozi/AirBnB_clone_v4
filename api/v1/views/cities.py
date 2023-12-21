@@ -58,4 +58,4 @@ def delete_city(city_id=None):
             if k not in ['id', 'updated_at', 'created_at', 'state_id']:
                 setattr(city, k, data[k])
         storage.save()
-        return jsonify(city.to_dict()), 201
+        return jsonify(city.to_dict()), 200
