@@ -11,7 +11,8 @@ from api.v1.views import app_views
 from flask import abort
 
 
-@app_views.route('/states/<state_id>/cities', methods=['GET', 'POST'], strict_slashes=False)
+@app_views.route('/states/<state_id>/cities',
+                 methods=['GET', 'POST'], strict_slashes=False)
 def get_cities(state_id=None):
     '''
     Simple route
