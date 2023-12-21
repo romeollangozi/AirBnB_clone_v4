@@ -19,6 +19,7 @@ def get_places(city_id=None):
     Simple route
     '''
     city = storage.get(City, city_id)
+
     if city is None:
         return abort(404)
     if request.method == 'GET':
@@ -35,8 +36,8 @@ def get_places(city_id=None):
         if storage.get(User, user_id) is None:
             return abort(404)
         if place_name is None:
-            return abort(400, "Miising name")
-        new_place = Place(name=place_name, user_id=user_id)
+            return abort(400, description="Missing name")
+        new_place = Place(name=place_name, user_id=user_id, city_id=city_id)
         storage.new(new_place)
         storage.save()
         return jsonify(new_place.to_dict()), 201
