@@ -11,8 +11,8 @@ from flask import abort
 
 
 @app_views.route('/amenities', methods=['GET', 'POST'], strict_slashes=False)
-@app_views.route('/amenities/<amenity_id>', methods=['GET', 'PUT', 'DELETE'])
-def return_states(amenity_id=None):
+@app_views.route('/amenities/<amenity_id>', methods=['GET', 'PUT', 'DELETE'], strict_slashes=False)
+def return_amenities(amenity_id=None):
     '''
     Status endpoint
     '''
