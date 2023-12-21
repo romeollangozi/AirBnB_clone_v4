@@ -11,7 +11,7 @@ from api.v1.views import app_views
 from flask import abort
 
 
-@app_views.route('/states/<state_id>/cities', methods=['GET', 'POST'])
+@app_views.route('/states/<state_id>/cities', methods=['GET', 'POST'], strict_slashes=False)
 def get_cities(state_id=None):
     '''
     Simple route
@@ -58,3 +58,4 @@ def delete_city(city_id=None):
             if k not in ['id', 'updated_at', 'created_at', 'state_id']:
                 setattr(city, k, data[k])
         storage.save()
+        return jsonify(city.to_dict()), 201
